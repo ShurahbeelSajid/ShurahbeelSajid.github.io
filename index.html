@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- Security: GitHub Pages cannot send custom headers, so the policy is delivered here.
+       Everything (fonts, scripts, images) is self-hosted: no third-party requests, no trackers. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Muhammad Shurahbeel Bin Sajid — Video Understanding &amp; Representation Learning</title>
+  <meta name="description" content="Muhammad Shurahbeel Bin Sajid researches video understanding and structured representation learning. First author of TransFlow-HOI (IEEE Access, 2026). MS Data Science, Air University; Jr. AI Engineer at CareCloud, Islamabad.">
+  <meta name="author" content="Muhammad Shurahbeel Bin Sajid">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://shurahbeelsajid.github.io/">
+
+  <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0e13" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- Open Graph / social previews -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Muhammad Shurahbeel Bin Sajid">
+  <meta property="og:title" content="Muhammad Shurahbeel Bin Sajid — Video Understanding &amp; Representation Learning">
+  <meta property="og:description" content="Researcher in video understanding and structured representation learning. First author of TransFlow-HOI (IEEE Access, 2026).">
+  <meta property="og:url" content="https://shurahbeelsajid.github.io/">
+  <meta property="og:image" content="https://shurahbeelsajid.github.io/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Muhammad Shurahbeel Bin Sajid — researcher in video understanding and structured representation learning">
+  <meta property="profile:first_name" content="Muhammad Shurahbeel">
+  <meta property="profile:last_name" content="Bin Sajid">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <link rel="preload" href="assets/fonts/fraunces-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/fraunces-wght-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Runs before first paint: applies the saved theme and enables JS-only styles (no flash). -->
+  <script src="assets/js/boot.js"></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://shurahbeelsajid.github.io/#person",
+        "name": "Muhammad Shurahbeel Bin Sajid",
+        "url": "https://shurahbeelsajid.github.io/",
+        "image": "https://shurahbeelsajid.github.io/assets/img/portrait-840.webp",
+        "jobTitle": "Jr. AI Engineer",
+        "worksFor": { "@type": "Organization", "name": "CareCloud (MTBC)" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Air University, Islamabad" },
+          { "@type": "CollegeOrUniversity", "name": "International Islamic University, Islamabad" }
+        ],
+        "address": { "@type": "PostalAddress", "addressLocality": "Islamabad", "addressCountry": "PK" },
+        "knowsAbout": [
+          "Video understanding",
+          "Human-object interaction recognition",
+          "Structured representation learning",
+          "Hypergraphs",
+          "Multimodal fusion",
+          "Retrieval-augmented generation",
+          "Clinical natural language processing"
+        ],
+        "sameAs": [
+          "https://scholar.google.com/citations?user=zHqropcAAAAJ",
+          "https://orcid.org/0009-0009-5167-0745",
+          "https://www.linkedin.com/in/shurahbeelsajid",
+          "https://github.com/ShurahbeelSajid"
+        ]
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "headline": "TransFlow-HOI: Transformer-Driven Multimodal Fusion for High-Performance Human–Object Interaction Recognition",
+        "author": [
+          { "@id": "https://shurahbeelsajid.github.io/#person" },
+          { "@type": "Person", "name": "Yazeed Alkhrijah" },
+          { "@type": "Person", "name": "Danish Hamid" },
+          { "@type": "Person", "name": "Muhammad Tahir Akram" },
+          { "@type": "Person", "name": "Syed Muhammad Usman" },
+          { "@type": "Person", "name": "Shehzad Khalid" },
+          { "@type": "Person", "name": "Mohamad A. Alawad" }
+        ],
+        "datePublished": "2026",
+        "isPartOf": { "@type": "PublicationVolume", "volumeNumber": "14", "isPartOf": { "@type": "Periodical", "name": "IEEE Access", "issn": "2169-3536" } },
+        "pagination": "12717-12732",
+        "sameAs": "https://doi.org/10.1109/ACCESS.2026.3655585",
+        "url": "https://ieeexplore.ieee.org/document/11357874/",
+        "license": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Icon sprite -->
+  <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-github" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></symbol>
+    <symbol id="i-scholar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M12 4 2.5 9.2 12 14.4l9.5-5.2L12 4z"/><path d="M6.5 11.6v4.2c0 1.5 2.5 2.9 5.5 2.9s5.5-1.4 5.5-2.9v-4.2M21.5 9.2v5"/></g></symbol>
+    <symbol id="i-orcid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M8.6 10.2v6.3M8.6 7.6v.05"/><path d="M11.6 10.2v6.3h1.5a3.15 3.15 0 0 0 0-6.3h-1.5z" stroke-linejoin="round"/></g></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3.5"/><path d="M7.8 10.5v6M7.8 7.7v.05M11.3 16.5v-6M11.3 13.3c0-1.7 1-2.9 2.6-2.9s2.4 1.1 2.4 2.9v3.2"/></g></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></g></symbol>
+    <symbol id="i-paper" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8l-5-5z"/><path d="M14 3v5h5M8.5 12.5h7M8.5 16h5"/></g></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="8.5" width="12" height="12" rx="2"/><path d="M15.5 8.5V5.5a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3"/></g></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="m9.2 13.9-1.7 7.1 4.5-2.4 4.5 2.4-1.7-7.1"/><path d="m12 6.3.8 1.7 1.8.2-1.3 1.2.4 1.8-1.7-.9-1.7.9.4-1.8-1.3-1.2 1.8-.2.8-1.7z"/></g></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></g></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></g></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10.5H9.5L4 19.5V5z"/><path d="M8 9h8M8 12.2h5"/></g></symbol>
+    <symbol id="i-cv" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="3" width="15" height="18" rx="2"/><circle cx="12" cy="9.3" r="2.6"/><path d="M8 16.6c.6-1.9 2.1-3 4-3s3.4 1.1 4 3"/></g></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></g></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="brand" href="#top" aria-label="Muhammad Shurahbeel Bin Sajid — back to top">
+        <span class="brand__mark" aria-hidden="true">MS</span>
+        <span class="brand__name">Shurahbeel Sajid</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav__list" id="nav-list">
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="#research">Research</a></li>
+          <li><a class="nav__link" href="#publications">Publications</a></li>
+          <li><a class="nav__link" href="#experience">Experience</a></li>
+          <li><a class="nav__link" href="#projects">Projects</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+        <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="nav-list" aria-expanded="false" aria-label="Open menu">
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-menu"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <canvas class="hero__canvas" data-flowfield aria-hidden="true"></canvas>
+
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="eyebrow hero__eyebrow">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <span>Video understanding</span>
+            <span class="eyebrow__sep" aria-hidden="true">/</span>
+            <span class="eyebrow__org">Structured representation learning</span>
+          </p>
+
+          <h1 class="hero__name" id="hero-title">
+            <span class="line"><span>Muhammad</span></span>
+            <span class="line"><em>Shurahbeel</em></span>
+            <span class="line"><span>Bin Sajid</span></span>
+          </h1>
+
+          <p class="hero__lede">
+            <span class="sr-only">I study how models should represent interaction: between people and objects in video, among the herbs of a single prescription, and across appearance, motion and time.</span>
+            <span aria-hidden="true">I study how models should represent interaction —
+              <span class="rotator" data-rotator>
+                <span class="rotator__item is-active">between people and objects in video.</span>
+                <span class="rotator__item">among the herbs of a single prescription.</span>
+                <span class="rotator__item">across appearance, motion and time.</span>
+              </span>
+            </span>
+          </p>
+
+          <p class="hero__sub">
+            My research spans video understanding and structured representation learning, with one aim:
+            models that learn <em>relations</em> rather than co-occurrence statistics.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#research">
+              Explore my research
+              <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#publications">
+              <svg width="18" height="18" aria-hidden="true"><use href="#i-paper"/></svg>
+              Read the paper
+            </a>
+            <a class="btn btn--ghost" href="assets/cv/Shurahbeel-Sajid-CV.pdf" target="_blank" rel="noopener" data-cv-open>
+              <svg width="18" height="18" aria-hidden="true"><use href="#i-cv"/></svg>
+              View CV
+            </a>
+          </div>
+
+          <ul class="profile-links" aria-label="Academic profiles">
+            <li><a href="https://scholar.google.com/citations?user=zHqropcAAAAJ&amp;hl=en" target="_blank" rel="me noopener noreferrer"><svg width="16" height="16" aria-hidden="true"><use href="#i-scholar"/></svg>Google Scholar</a></li>
+            <li><a href="https://orcid.org/0009-0009-5167-0745" target="_blank" rel="me noopener noreferrer"><svg width="16" height="16" aria-hidden="true"><use href="#i-orcid"/></svg>ORCID</a></li>
+            <li><a href="https://www.linkedin.com/in/shurahbeelsajid" target="_blank" rel="me noopener noreferrer"><svg width="16" height="16" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+            <li><a href="https://github.com/ShurahbeelSajid" target="_blank" rel="me noopener noreferrer"><svg width="16" height="16" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a></li>
+          </ul>
+        </div>
+
+        <div class="hero__portrait">
+          <figure class="portrait">
+            <div class="portrait__arch" aria-hidden="true"></div>
+            <svg class="portrait__outline" viewBox="0 0 100 130" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0.6 130 V50 A49.4 49.4 0 0 1 99.4 50 V130" pathLength="1"/>
+            </svg>
+            <div class="portrait__media">
+              <img class="portrait__img"
+                   src="assets/img/portrait-840.webp"
+                   srcset="assets/img/portrait-480.webp 480w, assets/img/portrait-840.webp 840w"
+                   sizes="(max-width: 880px) 260px, 440px"
+                   width="840" height="1076"
+                   alt="Portrait of Muhammad Shurahbeel Bin Sajid"
+                   fetchpriority="high" decoding="async">
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <div class="container hero__meta" aria-hidden="true">
+        <span><svg width="14" height="14"><use href="#i-pin"/></svg>Islamabad, Pakistan</span>
+        <span class="hero__meta-extra">MS Data Science · Air University</span>
+        <a class="scroll-cue" href="#about" tabindex="-1">Scroll<span class="scroll-cue__line"></span></a>
+      </div>
+    </section>
+
+    <!-- Keyword band -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Human–object interaction</span><i></i>
+        <span>Video understanding</span><i></i>
+        <span>Cross-attention fusion</span><i></i>
+        <span>Optical flow</span><i></i>
+        <span>Hypergraph learning</span><i></i>
+        <span>Structured representations</span><i></i>
+        <span>Temporal modelling</span><i></i>
+        <span>Retrieval-augmented generation</span><i></i>
+        <span>Clinical NLP</span><i></i>
+        <span>Calibrated abstention</span><i></i>
+        <span>Human–object interaction</span><i></i>
+        <span>Video understanding</span><i></i>
+        <span>Cross-attention fusion</span><i></i>
+        <span>Optical flow</span><i></i>
+        <span>Hypergraph learning</span><i></i>
+        <span>Structured representations</span><i></i>
+        <span>Temporal modelling</span><i></i>
+        <span>Retrieval-augmented generation</span><i></i>
+        <span>Clinical NLP</span><i></i>
+        <span>Calibrated abstention</span><i></i>
+      </div>
+    </div>
+
+    <!-- ============================== ABOUT ============================== -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label"><span>01</span> About</p>
+          <h2 class="section-title" id="about-title">From mathematics to <em>machine perception.</em></h2>
+        </div>
+
+        <div class="about">
+          <div class="about__text">
+            <p class="lead-statement reveal">
+              I am a researcher and AI engineer based in Islamabad, Pakistan. My training began in pure mathematics;
+              my research now asks how models should represent the <em>structure</em> of interactions.
+            </p>
+            <div class="prose reveal">
+              <p>
+                At Air University I completed an MS in Data Science with a thesis on unifying appearance and motion
+                for human–object interaction recognition, supervised by Prof. Danish Hamid. That work became
+                <a href="#publications">TransFlow-HOI</a>, a cross-attention fusion model published in <em>IEEE Access</em>.
+              </p>
+              <p>
+                As a visiting research student at Northwestern Polytechnical University in Xi’an, on a full scholarship,
+                I modelled Traditional Chinese Medicine prescriptions as hypergraphs, capturing multi-herb combinations
+                that pairwise graphs cannot express.
+              </p>
+              <p>
+                Today I am a Jr. AI Engineer at CareCloud, building LLM and NLP pipelines for clinical documents and
+                validating them against the judgement of clinical experts. Alongside that I build open-source systems
+                such as <a href="#p-crisisweave">CrisisWeave</a>, an evidence-first retrieval assistant that abstains
+                when the evidence runs out.
+              </p>
+            </div>
+          </div>
+
+          <aside class="facts reveal" aria-label="At a glance">
+            <p class="facts__title">At a glance</p>
+            <dl>
+              <div>
+                <dt>Based in</dt>
+                <dd>Islamabad, Pakistan <span class="muted">(UTC+5)</span></dd>
+              </div>
+              <div>
+                <dt>Currently</dt>
+                <dd><span class="live-dot" aria-hidden="true"></span>Jr. AI Engineer, CareCloud (MTBC)</dd>
+              </div>
+              <div>
+                <dt>Education</dt>
+                <dd>MS Data Science, Air University <span class="muted">(2025)</span><br>BS Mathematics, International Islamic University <span class="muted">(2020)</span></dd>
+              </div>
+              <div>
+                <dt>Research</dt>
+                <dd>Video understanding · Structured representation learning</dd>
+              </div>
+              <div>
+                <dt>Languages</dt>
+                <dd>Urdu <span class="muted">(native)</span> · English <span class="muted">(C1)</span> · Turkish <span class="muted">(A2)</span> · Chinese <span class="muted">(A1)</span></dd>
+              </div>
+              <div>
+                <dt>ORCID</dt>
+                <dd><a href="https://orcid.org/0009-0009-5167-0745" target="_blank" rel="noopener noreferrer">0009-0009-5167-0745</a></dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== RESEARCH ============================== -->
+    <section class="section section--alt" id="research" aria-labelledby="research-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label"><span>02</span> Research</p>
+          <h2 class="section-title" id="research-title">How should <em>interaction</em> be represented?</h2>
+          <p class="section-intro">
+            Interactions are relational: a hand and a cup unfolding over time, several herbs combined in one prescription.
+            Both of my research lines ask how that structure should be represented so that models learn relations
+            rather than co-occurrence statistics.
+          </p>
+        </div>
+
+        <div class="research" data-stagger>
+          <article class="card research-card reveal" data-spotlight data-live>
+            <svg class="illus illus--fusion" viewBox="0 0 320 140" role="img" aria-label="Diagram: an appearance stream and a motion stream merge into a single fused representation that predicts the interaction.">
+              <text class="illus__label" x="6" y="22">appearance · RGB</text>
+              <text class="illus__label" x="6" y="132">motion · optical flow</text>
+              <path class="illus__stream illus__stream--a" d="M8 36 C 92 36, 118 70, 186 70"/>
+              <path class="illus__stream illus__stream--b" d="M8 104 C 92 104, 118 70, 186 70"/>
+              <path class="illus__comet" d="M8 36 C 92 36, 118 70, 186 70" pathLength="100"/>
+              <path class="illus__comet illus__comet--b" d="M8 104 C 92 104, 118 70, 186 70" pathLength="100"/>
+              <path class="illus__merged" d="M186 70 H 288"/>
+              <path class="illus__comet illus__comet--m" d="M186 70 H 288" pathLength="100"/>
+              <circle class="illus__ring" cx="186" cy="70" r="13"/>
+              <circle class="illus__fuse" cx="186" cy="70" r="7"/>
+              <circle class="illus__out" cx="296" cy="70" r="6"/>
+              <text class="illus__label" x="196" y="54">cross-attention</text>
+              <text class="illus__label illus__label--end" x="314" y="96">interaction</text>
+            </svg>
+            <p class="research-card__kicker">Video understanding</p>
+            <h3>Human–object interaction recognition</h3>
+            <p>
+              Appearance tells a model <em>what</em> is in the frame; motion tells it <em>what is happening</em>.
+              My MS thesis fuses RGB appearance and optical-flow motion streams through cross-attention to model
+              long-range temporal dependencies in interaction video.
+            </p>
+            <p class="research-card__meta">MS thesis · Air University · Supervisor: Prof. Danish Hamid</p>
+            <ul class="tags" aria-label="Methods"><li>HOI4D</li><li>I3D features</li><li>Optical flow</li><li>Cross-attention</li></ul>
+            <a class="research-card__link" href="#publications">Read the publication <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow-down"/></svg></a>
+          </article>
+
+          <article class="card research-card reveal" data-spotlight data-live>
+            <svg class="illus illus--hyper" viewBox="0 0 320 140" role="img" aria-label="Diagram: herbs as nodes. Thin lines show pairwise links; shaded regions show hyperedges, each joining several herbs that appear together in one prescription.">
+              <path class="illus__edge" d="M40 40 L95 100 M95 100 L150 36 M40 40 L150 36 M150 36 L232 52 M176 104 L280 100 M232 52 L280 100 M95 100 L176 104"/>
+              <polygon class="illus__hedge illus__hedge--a" points="40,40 150,36 95,100"/>
+              <polygon class="illus__hedge illus__hedge--b" points="150,36 232,52 280,100 176,104"/>
+              <circle class="illus__node" cx="40" cy="40" r="6.5"/>
+              <circle class="illus__node" cx="95" cy="100" r="6.5"/>
+              <circle class="illus__node illus__node--shared" cx="150" cy="36" r="7.5"/>
+              <circle class="illus__node" cx="232" cy="52" r="6.5"/>
+              <circle class="illus__node" cx="176" cy="104" r="6.5"/>
+              <circle class="illus__node" cx="280" cy="100" r="6.5"/>
+              <text class="illus__label" x="6" y="132">pairwise edges</text>
+              <text class="illus__label illus__label--end" x="314" y="18">hyperedges</text>
+            </svg>
+            <p class="research-card__kicker">Structured representation learning</p>
+            <h3>Hypergraphs for multi-way relations</h3>
+            <p>
+              A prescription is not a list of herb pairs; it is one combination. I modelled Traditional Chinese Medicine
+              prescriptions as herb–symptom networks and as hypergraphs, then used network-based pattern discovery to
+              surface recurring co-prescription motifs and their symptom associations.
+            </p>
+            <p class="research-card__meta">Bioinformatics R&amp;D Lab · Northwestern Polytechnical University · 2024–25</p>
+            <ul class="tags" aria-label="Methods"><li>Hypergraphs</li><li>HyperNetX</li><li>NetworkX</li><li>Cytoscape</li><li>Gephi</li></ul>
+          </article>
+        </div>
+
+        <div class="applied reveal">
+          <p class="applied__label">Applied threads</p>
+          <a class="applied__item" href="#p-crisisweave">
+            <strong>Grounded multimodal retrieval</strong>
+            <span>Evidence-first question answering with citation validation and calibrated abstention.</span>
+            <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="applied__item" href="#experience">
+            <strong>Clinical language AI</strong>
+            <span>LLM and NLP pipelines for clinical documents, validated against expert judgement.</span>
+            <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== PUBLICATIONS ============================== -->
+    <section class="section" id="publications" aria-labelledby="pubs-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label"><span>03</span> Publications</p>
+          <h2 class="section-title" id="pubs-title">Peer-reviewed <em>work.</em></h2>
+        </div>
+
+        <article class="pub reveal" id="p-transflow" aria-labelledby="pub-1-title" data-live>
+          <div class="pub__head">
+            <p class="pub__label">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              Journal article · <em>IEEE Access</em> · 2026
+              <span class="pub__badge">Open access</span>
+            </p>
+            <h3 class="pub__title" id="pub-1-title">TransFlow-HOI: Transformer-Driven Multimodal Fusion for High-Performance Human–Object Interaction Recognition</h3>
+            <p class="pub__authors">
+              <strong>Muhammad Shurahbeel Bin Sajid</strong>, Yazeed Alkhrijah, Danish Hamid, Muhammad Tahir Akram,
+              Syed Muhammad Usman, Shehzad Khalid, Mohamad A. Alawad
+            </p>
+            <p class="pub__venue">
+              <em>IEEE Access</em>, vol. 14, pp. 12717–12732, 2026 ·
+              doi: <a href="https://doi.org/10.1109/ACCESS.2026.3655585" target="_blank" rel="noopener noreferrer">10.1109/ACCESS.2026.3655585</a>
+            </p>
+            <p class="pub__summary">
+              A transformer-based framework that fuses RGB appearance and optical-flow motion streams through
+              cross-attention to capture long-range temporal dependencies in human–object interaction video.
+            </p>
+          </div>
+
+          <div class="pub__grid">
+            <figure class="pub__figure">
+              <figcaption>Approach, simplified</figcaption>
+              <div class="arch">
+                <div class="arch__inputs">
+                  <div class="arch__node arch__node--in"><span class="arch__k">Appearance</span><span class="arch__v">RGB frames</span></div>
+                  <div class="arch__node arch__node--in arch__node--motion"><span class="arch__k">Motion</span><span class="arch__v">Optical flow</span></div>
+                </div>
+                <div class="arch__node arch__node--fuse"><span class="arch__k">Cross-attention fusion</span><span class="arch__v">long-range temporal dependencies</span></div>
+                <div class="arch__arrow" aria-hidden="true"><span></span></div>
+                <div class="arch__node arch__node--out"><span class="arch__k">Interaction class</span><span class="arch__v">HOI recognition</span></div>
+              </div>
+            </figure>
+
+            <figure class="results">
+              <figcaption>Top-1 accuracy on HOI4D</figcaption>
+              <ol class="bars">
+                <li class="bar bar--ours" data-value="93.1">
+                  <span class="bar__label">TransFlow-HOI <em>(this work)</em></span>
+                  <span class="bar__track"><span class="bar__fill"></span></span>
+                  <span class="bar__value" data-count="93.1">93.1%</span>
+                </li>
+                <li class="bar" data-value="78.2">
+                  <span class="bar__label">Late Fusion</span>
+                  <span class="bar__track"><span class="bar__fill"></span></span>
+                  <span class="bar__value" data-count="78.2">78.2%</span>
+                </li>
+                <li class="bar" data-value="77.3">
+                  <span class="bar__label">Shallow MLP Fusion</span>
+                  <span class="bar__track"><span class="bar__fill"></span></span>
+                  <span class="bar__value" data-count="77.3">77.3%</span>
+                </li>
+              </ol>
+              <p class="results__note"><strong>+14.9</strong> and <strong>+15.8</strong> percentage points over the late-fusion and shallow-MLP fusion baselines.</p>
+            </figure>
+          </div>
+
+          <div class="pub__actions">
+            <a class="btn btn--light" href="https://ieeexplore.ieee.org/document/11357874/" target="_blank" rel="noopener noreferrer">
+              Read on IEEE Xplore
+              <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+            </a>
+            <a class="btn btn--plate-ghost" href="https://doi.org/10.1109/ACCESS.2026.3655585" target="_blank" rel="noopener noreferrer">
+              DOI
+              <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+            </a>
+          </div>
+
+          <details class="cite">
+            <summary>Cite this paper <span class="cite__hint">BibTeX</span></summary>
+            <div class="cite__body">
+              <pre><code data-bibtex>@article{sajid2026transflowhoi,
+  author  = {Bin Sajid, Muhammad Shurahbeel and Alkhrijah, Yazeed and Hamid, Danish
+             and Akram, Muhammad Tahir and Usman, Syed Muhammad and Khalid, Shehzad
+             and Alawad, Mohamad A.},
+  title   = {{TransFlow-HOI}: Transformer-Driven Multimodal Fusion for High-Performance
+             Human--Object Interaction Recognition},
+  journal = {IEEE Access},
+  volume  = {14},
+  pages   = {12717--12732},
+  year    = {2026},
+  doi     = {10.1109/ACCESS.2026.3655585}
+}</code></pre>
+              <button class="cite__copy" type="button" data-copy-bibtex>
+                <svg width="16" height="16" aria-hidden="true"><use href="#i-copy"/></svg>
+                <span data-copy-label>Copy</span>
+              </button>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================== EXPERIENCE & EDUCATION ============================== -->
+    <section class="section section--alt" id="experience" aria-labelledby="exp-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label"><span>04</span> Experience &amp; education</p>
+          <h2 class="section-title" id="exp-title">Research, <em>practice</em> and training.</h2>
+        </div>
+
+        <div class="cv">
+          <div class="cv__col">
+            <h3 class="cv__heading reveal">Experience</h3>
+            <ol class="timeline">
+              <li class="tl reveal">
+                <p class="tl__meta"><span>Jul 2025 — Present</span><span>Islamabad</span></p>
+                <h4 class="tl__role">Jr. AI Engineer</h4>
+                <p class="tl__org">CareCloud (MTBC)</p>
+                <ul class="tl__points">
+                  <li>Build and deploy LLM/NLP pipelines that parse and summarise clinical documents, extract structured clinical fields and feed downstream billing for U.S. healthcare revenue-cycle management.</li>
+                  <li>Develop machine-learning models for prior-authorisation and denial-management workflows, from feature engineering and evaluation design to production integration.</li>
+                  <li>Define evaluation criteria with clinical and RCM domain experts and validate model outputs against expert judgement.</li>
+                </ul>
+              </li>
+              <li class="tl reveal">
+                <p class="tl__meta"><span>May 2025 — Jul 2025</span><span>Islamabad</span></p>
+                <h4 class="tl__role">AI Intern</h4>
+                <p class="tl__org">CareCloud (MTBC)</p>
+                <ul class="tl__points">
+                  <li>Fine-tuned open-source LLMs into a medical-document summariser that reduced clinical review time by <strong>40%</strong> on internal evaluation sets.</li>
+                  <li>Contributed to the architecture of AI automation modules later taken to production.</li>
+                </ul>
+              </li>
+              <li class="tl reveal">
+                <p class="tl__meta"><span>Nov 2023 — Apr 2025</span><span>Islamabad</span></p>
+                <h4 class="tl__role">Graduate Research Assistant</h4>
+                <p class="tl__org">Air University</p>
+                <ul class="tl__points">
+                  <li>Designed TransFlow-HOI, a transformer that fuses RGB appearance and optical-flow motion via cross-attention to model long-range temporal dependencies.</li>
+                  <li>Built the full HOI4D pipeline: I3D feature extraction, optical-flow computation, two-stage and single-stage training, and evaluation by accuracy, precision, recall and F1.</li>
+                  <li>Positioned the contribution against I3D, MS-TCN and ASFormer through a survey of video understanding, action recognition and detection literature.</li>
+                </ul>
+              </li>
+              <li class="tl reveal">
+                <p class="tl__meta"><span>Sep 2024 — Jan 2025</span><span>Xi’an, China</span></p>
+                <h4 class="tl__role">Visiting Research Student</h4>
+                <p class="tl__org">Bioinformatics R&amp;D Lab, Northwestern Polytechnical University</p>
+                <ul class="tl__points">
+                  <li>Modelled Traditional Chinese Medicine prescriptions as herb–symptom networks and as hypergraphs.</li>
+                  <li>Cleaned and normalised heterogeneous herbal datasets for treatment prediction, resolving inconsistent nomenclature and dosage encoding.</li>
+                  <li>Applied network-based pattern discovery to surface recurring co-prescription motifs and their symptom associations.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <div class="cv__col">
+            <h3 class="cv__heading reveal">Education</h3>
+            <ol class="timeline timeline--edu">
+              <li class="tl reveal">
+                <p class="tl__meta"><span>Sep 2023 — Nov 2025</span></p>
+                <h4 class="tl__role">M.S. Data Science</h4>
+                <p class="tl__org">Air University, Islamabad</p>
+                <ul class="tl__points">
+                  <li><em>Thesis:</em> Unifying Appearance and Motion: Transformer-Based Feature Fusion for HOI Recognition. Supervisor: Prof. Danish Hamid.</li>
+                  <li>Visiting exchange student, Northwestern Polytechnical University, Xi’an (Aug 2024 — Jan 2025): coursework and lab research on full scholarship.</li>
+                  <li>Coursework: Deep Learning, Machine Learning, Computer Vision, Big Data Analytics.</li>
+                </ul>
+              </li>
+              <li class="tl reveal">
+                <p class="tl__meta"><span>Feb 2016 — May 2020</span></p>
+                <h4 class="tl__role">B.S. Mathematics</h4>
+                <p class="tl__org">International Islamic University, Islamabad</p>
+                <ul class="tl__points">
+                  <li>Coursework: Real Analysis, Linear Algebra, Probability and Statistics, Numerical Methods, Calculus, Differential Equations.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== RECOGNITION & SERVICE ============================== -->
+    <section class="section" id="recognition" aria-labelledby="rec-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label"><span>05</span> Recognition &amp; service</p>
+          <h2 class="section-title" id="rec-title">Honours and <em>community.</em></h2>
+        </div>
+
+        <div class="honours" data-stagger>
+          <article class="card honour honour--featured reveal" data-spotlight>
+            <svg class="honour__icon" width="30" height="30" aria-hidden="true"><use href="#i-award"/></svg>
+            <p class="honour__kicker">Honour · 2024</p>
+            <h3>Outstanding Visiting Student Scholarship</h3>
+            <p class="honour__org">Northwestern Polytechnical University</p>
+            <p>Sole recipient nominated from Air University.</p>
+          </article>
+          <article class="card honour reveal" data-spotlight>
+            <svg class="honour__icon" width="30" height="30" aria-hidden="true"><use href="#i-mic"/></svg>
+            <p class="honour__kicker">Service · 2025</p>
+            <h3>Host and Organizer</h3>
+            <p class="honour__org">International Academic Conference on AI and Machine Learning, NWPU</p>
+          </article>
+          <article class="card honour reveal" data-spotlight>
+            <svg class="honour__icon" width="30" height="30" aria-hidden="true"><use href="#i-globe"/></svg>
+            <p class="honour__kicker">Programme</p>
+            <h3>CEP International Talent Program</h3>
+            <p class="honour__org">School of Software, NWPU</p>
+            <p>Collaborative R&amp;D with international and Chinese researchers.</p>
+          </article>
+          <article class="card honour reveal" data-spotlight>
+            <svg class="honour__icon" width="30" height="30" aria-hidden="true"><use href="#i-chat"/></svg>
+            <p class="honour__kicker">Leadership</p>
+            <h3>Seminars and public speaking</h3>
+            <p class="honour__org">Air University</p>
+            <p>Organised seminars and formal academic talks; represented the university in intervarsity debate and public speaking.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== PROJECTS ============================== -->
+    <section class="section section--alt" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label"><span>06</span> Projects</p>
+          <h2 class="section-title" id="projects-title">Systems, <em>end to end.</em></h2>
+          <p class="section-intro">
+            Open-source systems I have designed, implemented, tested and documented. The source code is public on GitHub.
+          </p>
+        </div>
+
+        <div class="projects" data-stagger>
+          <article class="card project project--feature reveal" id="p-crisisweave" data-spotlight>
+            <div class="project__body">
+              <div class="project__head">
+                <span class="project__idx">Featured project</span>
+                <span class="lang"><span class="lang__dot lang__dot--py" aria-hidden="true"></span>Python</span>
+              </div>
+              <h3 class="project__title"><a class="stretched" href="https://github.com/ShurahbeelSajid/Crisis-Weave" target="_blank" rel="noopener noreferrer">CrisisWeave</a></h3>
+              <p class="project__tagline">Evidence-first multimodal retrieval for disaster reports.</p>
+              <p>Retrieval-augmented question answering over heterogeneous disaster evidence: native text, OCR output, document images, video frames and transcripts, and structured tables. It validates citations, flags conflicting and stale sources, and abstains explicitly when the evidence is insufficient, preferring calibrated refusal to confident hallucination.</p>
+              <ul class="project__facts">
+                <li>Guarded read-only SQL and approved-domain web search, under tenant-isolated evidence libraries</li>
+                <li>Configurable BGE embeddings and reranking, CLIP visual retrieval and Faster Whisper transcription</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies"><li>RAG</li><li>Qdrant</li><li>DuckDB</li><li>Tesseract OCR</li><li>FFmpeg</li><li>Docker</li></ul>
+            </div>
+            <div class="query-card" data-live aria-hidden="true">
+              <p class="query-card__cap">Illustrative query flow</p>
+              <p class="query-card__q">“Which disaster type caused the highest direct economic loss, and on which page is it stated?”</p>
+              <ol class="query-card__trace">
+                <li><span class="trace-dot"></span>Retrieve matching passages and table rows</li>
+                <li><span class="trace-dot"></span>Rerank and answer only from retrieved evidence</li>
+                <li><span class="trace-dot"></span>Check every citation against its source page</li>
+                <li class="is-abstain"><span class="trace-dot"></span>If support is missing, abstain instead of guessing</li>
+              </ol>
+            </div>
+            <span class="project__go" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-up-right"/></svg></span>
+          </article>
+
+          <article class="card project reveal" id="p-detection" data-spotlight>
+            <div class="project__head">
+              <span class="project__idx">P/02</span>
+              <span class="lang"><span class="lang__dot lang__dot--py" aria-hidden="true"></span>Python</span>
+            </div>
+            <h3 class="project__title"><a class="stretched" href="https://github.com/ShurahbeelSajid/ai-detection-suite" target="_blank" rel="noopener noreferrer">AI Detection Suite</a></h3>
+            <p class="project__tagline">Real-time local inference from a webcam.</p>
+            <p>YOLO object detection with CPU-based Haar face detection and lightweight hand detection. Bounded background inference, coordinate scaling and deterministic resource cleanup keep throughput stable; an FPS and latency HUD supports profiling.</p>
+            <ul class="tags" aria-label="Technologies"><li>YOLO</li><li>OpenCV</li><li>Python</li></ul>
+            <span class="project__go" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-up-right"/></svg></span>
+          </article>
+
+          <article class="card project reveal" id="p-transcriber" data-spotlight>
+            <div class="project__head">
+              <span class="project__idx">P/03</span>
+              <span class="lang"><span class="lang__dot lang__dot--py" aria-hidden="true"></span>Python</span>
+            </div>
+            <h3 class="project__title"><a class="stretched" href="https://github.com/ShurahbeelSajid/live-transcriber" target="_blank" rel="noopener noreferrer">Live Transcriber</a></h3>
+            <p class="project__tagline">On-device speech-to-text with live subtitles.</p>
+            <p>System-audio loopback capture, Silero voice-activity detection and faster-whisper transcription in 99+ languages, shown in a click-through overlay. Audio stays in memory, with no telemetry.</p>
+            <ul class="tags" aria-label="Technologies"><li>Whisper</li><li>Silero VAD</li><li>Python</li></ul>
+            <span class="project__go" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-up-right"/></svg></span>
+          </article>
+
+          <article class="card project reveal" id="p-image-forge" data-spotlight>
+            <div class="project__head">
+              <span class="project__idx">P/04</span>
+              <span class="lang"><span class="lang__dot lang__dot--js" aria-hidden="true"></span>JavaScript</span>
+            </div>
+            <h3 class="project__title"><a class="stretched" href="https://github.com/ShurahbeelSajid/image-converter" target="_blank" rel="noopener noreferrer">Image Forge</a></h3>
+            <p class="project__tagline">Private, in-browser image conversion.</p>
+            <p>Converts JPG, PNG, WebP, AVIF, GIF and TIFF locally with a Web Worker pool; nothing is uploaded. Target-size compression bisects quality to fit a byte budget. Backed by 225 automated tests.</p>
+            <ul class="tags" aria-label="Technologies"><li>Web Workers</li><li>Node.js</li><li>libvips</li></ul>
+            <span class="project__go" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow-up-right"/></svg></span>
+          </article>
+        </div>
+
+        <p class="more-link reveal">
+          <a href="https://github.com/ShurahbeelSajid?tab=repositories" target="_blank" rel="noopener noreferrer">
+            All repositories on GitHub
+            <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================== SKILLS ============================== -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label"><span>07</span> Skills</p>
+          <h2 class="section-title" id="skills-title">Methods &amp; <em>instruments.</em></h2>
+        </div>
+
+        <div class="toolkit" data-stagger>
+          <div class="toolkit__group reveal">
+            <h3>Deep learning</h3>
+            <ul class="chips"><li>PyTorch</li><li>TensorFlow</li><li>Keras</li><li>scikit-learn</li><li>Transformers &amp; attention</li><li>LLM fine-tuning</li></ul>
+          </div>
+          <div class="toolkit__group reveal">
+            <h3>Computer vision &amp; video</h3>
+            <ul class="chips"><li>I3D feature extraction</li><li>Optical flow</li><li>YOLO</li><li>OpenCV</li><li>Image segmentation</li></ul>
+          </div>
+          <div class="toolkit__group reveal">
+            <h3>Graphs &amp; networks</h3>
+            <ul class="chips"><li>NetworkX</li><li>HyperNetX</li><li>Cytoscape</li><li>Gephi</li></ul>
+          </div>
+          <div class="toolkit__group reveal">
+            <h3>Language &amp; retrieval</h3>
+            <ul class="chips"><li>Clinical NLP</li><li>Retrieval-augmented generation</li><li>Reranking</li><li>Whisper</li><li>Qdrant</li></ul>
+          </div>
+          <div class="toolkit__group reveal">
+            <h3>Data</h3>
+            <ul class="chips"><li>NumPy</li><li>pandas</li><li>PySpark</li><li>ETL &amp; ELT</li><li>Visualisation</li></ul>
+          </div>
+          <div class="toolkit__group reveal">
+            <h3>Languages &amp; tools</h3>
+            <ul class="chips"><li>Python</li><li>MATLAB</li><li>SQL</li><li>JavaScript</li><li>Docker</li><li>Git</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CONTACT ============================== -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact__panel reveal">
+          <p class="section-label"><span>08</span> Contact</p>
+          <h2 class="contact__title" id="contact-title">Let’s talk <em>research.</em></h2>
+          <p class="contact__text">
+            I welcome conversations about research opportunities and collaboration in video understanding,
+            structured representation learning and trustworthy AI.
+          </p>
+          <div class="contact__actions">
+            <a class="btn btn--primary" href="#contact" data-email data-user="shurahbeelsajid008" data-domain="gmail.com">
+              <svg width="18" height="18" aria-hidden="true"><use href="#i-mail"/></svg>
+              <span data-email-text>shurahbeelsajid008 [at] gmail [dot] com</span>
+            </a>
+          </div>
+          <ul class="contact__links" aria-label="Profiles">
+            <li><a href="https://scholar.google.com/citations?user=zHqropcAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" aria-hidden="true"><use href="#i-scholar"/></svg>Google Scholar</a></li>
+            <li><a href="https://orcid.org/0009-0009-5167-0745" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" aria-hidden="true"><use href="#i-orcid"/></svg>ORCID</a></li>
+            <li><a href="https://www.linkedin.com/in/shurahbeelsajid" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+            <li><a href="https://github.com/ShurahbeelSajid" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a></li>
+          </ul>
+          <p class="contact__clock">
+            <svg width="16" height="16" aria-hidden="true"><use href="#i-clock"/></svg>
+            <span>Local time in Islamabad</span>
+            <time data-local-time>UTC+5</time>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CV preview: opened by [data-cv-open] on desktop; elsewhere the link opens the PDF directly -->
+  <dialog class="cv-modal" id="cv-modal" aria-labelledby="cv-modal-title">
+    <div class="cv-modal__inner">
+      <div class="cv-modal__bar">
+        <p class="cv-modal__title" id="cv-modal-title">Curriculum Vitae <span>PDF · 3 pages</span></p>
+        <div class="cv-modal__actions">
+          <a class="cv-modal__btn" href="assets/cv/Shurahbeel-Sajid-CV.pdf" target="_blank" rel="noopener">
+            Open in new tab
+            <svg width="15" height="15" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+          </a>
+          <a class="cv-modal__btn" href="assets/cv/Shurahbeel-Sajid-CV.pdf" download="Muhammad-Shurahbeel-Bin-Sajid-CV.pdf">
+            <svg width="15" height="15" aria-hidden="true"><use href="#i-download"/></svg>
+            Download
+          </a>
+          <button class="cv-modal__close" type="button" data-cv-close aria-label="Close CV preview">
+            <svg width="18" height="18" aria-hidden="true"><use href="#i-close"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="cv-modal__body">
+        <p class="cv-modal__loading" aria-hidden="true">Loading CV…</p>
+        <iframe class="cv-modal__frame" title="CV of Muhammad Shurahbeel Bin Sajid (PDF)" data-src="assets/cv/Shurahbeel-Sajid-CV.pdf#view=FitH"></iframe>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>© <span data-year>2026</span> Muhammad Shurahbeel Bin Sajid</p>
+      <p class="site-footer__note">Hand-built and self-hosted. No trackers, no cookies.</p>
+      <a class="to-top" href="#top">Back to top <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+    </div>
+  </footer>
+</body>
+</html>
