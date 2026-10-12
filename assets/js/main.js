@@ -1,11 +1,10 @@
 /* Progressive enhancement for the site. The page is fully readable without this file.
-   No network requests, no storage beyond the visitor's own theme choice. */
+   No network requests and no storage. */
 (function () {
   "use strict";
 
   var root = document.documentElement;
   var reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-  var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
   function prefersReducedMotion() {
     return reduceMotionQuery.matches;
@@ -20,77 +19,10 @@
     Array.prototype.forEach.call((scope || document).querySelectorAll(selector), fn);
   }
 
-  /* ---------------------------------------------------------------- Theme
-     The site follows the visitor's OS colour scheme; there is no manual toggle.
-     Re-tint the hero flow field when the OS setting changes. */
-  function initTheme() {
-    onMediaChange(darkQuery, function () {
-      document.dispatchEvent(new CustomEvent("themechange"));
-    });
-  }
-
-  /* ------------------------------------------------- Header, progress, menu */
-  function initHeader() {
-    var header = document.querySelector("[data-header]");
-    var bar = document.querySelector(".scroll-progress span");
-    var menuBtn = document.querySelector("[data-menu-toggle]");
-    var ticking = false;
-
-    function update() {
-      ticking = false;
-      var y = window.scrollY || window.pageYOffset || 0;
-      if (header) header.classList.toggle("is-scrolled", y > 8);
-      if (bar) {
-        var max = root.scrollHeight - window.innerHeight;
-        var p = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
-        bar.style.transform = "scaleX(" + p.toFixed(4) + ")";
-      }
-    }
-
-    function requestUpdate() {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(update);
-    }
-
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate, { passive: true });
-    update();
-
-    if (!header || !menuBtn) return;
-
-    function setOpen(open) {
-      header.classList.toggle("nav-open", open);
-      menuBtn.setAttribute("aria-expanded", String(open));
-      menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-    }
-
-    menuBtn.addEventListener("click", function () {
-      setOpen(!header.classList.contains("nav-open"));
-    });
-    each(".nav__link", function (link) {
-      link.addEventListener("click", function () {
-        setOpen(false);
-      });
-    }, header);
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && header.classList.contains("nav-open")) {
-        setOpen(false);
-        menuBtn.focus();
-      }
-    });
-    document.addEventListener("click", function (e) {
-      if (header.classList.contains("nav-open") && !header.contains(e.target)) setOpen(false);
-    });
-    onMediaChange(window.matchMedia("(min-width: 881px)"), function (e) {
-      if (e.matches) setOpen(false);
-    });
-  }
-
-  /* ---------------------------------------------------- Active nav section */
-  function initActiveNav() {
+  /* ------------------------------------------- Section links (desktop panel) */
+  function initToc() {
     if (!("IntersectionObserver" in window)) return;
-    var links = Array.prototype.slice.call(document.querySelectorAll(".nav__link"));
+    var links = Array.prototype.slice.call(document.querySelectorAll(".toc__link"));
     var byId = {};
     links.forEach(function (link) {
       var id = (link.getAttribute("href") || "").slice(1);
@@ -110,100 +42,33 @@
       entries.forEach(function (entry) {
         if (entry.isIntersecting) setActive(entry.target.id);
       });
-    }, { rootMargin: "-45% 0px -50% 0px" });
+    }, { rootMargin: "-30% 0px -60% 0px" });
 
     Object.keys(byId).forEach(function (id) {
       observer.observe(document.getElementById(id));
     });
-    var hero = document.getElementById("top");
-    if (hero) observer.observe(hero);
   }
 
   /* --------------------------------------------------------- Scroll reveal */
   function initReveal() {
-    each("[data-stagger]", function (group) {
-      var i = 0;
-      Array.prototype.forEach.call(group.children, function (child) {
-        if (!child.classList.contains("reveal")) return;
-        child.style.setProperty("--reveal-delay", i * 90 + "ms");
-        child.setAttribute("data-reveal-delay", String(i * 90));
-        i += 1;
-      });
-    });
-
     var items = document.querySelectorAll(".reveal");
-
     function show(el) {
       el.classList.add("is-visible");
-      var delay = parseInt(el.getAttribute("data-reveal-delay") || "0", 10);
-      // After the entrance finishes, switch cards to their snappier hover transitions.
-      window.setTimeout(function () {
-        el.classList.add("is-settled");
-      }, 950 + delay);
     }
-
     if (!("IntersectionObserver" in window) || prefersReducedMotion()) {
       Array.prototype.forEach.call(items, show);
       return;
     }
-
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         show(entry.target);
         observer.unobserve(entry.target);
       });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
-
+    }, { rootMargin: "0px 0px -6% 0px", threshold: 0.04 });
     Array.prototype.forEach.call(items, function (el) {
       observer.observe(el);
     });
-  }
-
-  /* --------------------------------------------------------- Hero rotator */
-  function initRotator() {
-    var el = document.querySelector("[data-rotator]");
-    if (!el) return;
-    var items = el.querySelectorAll(".rotator__item");
-    if (items.length < 2) return;
-
-    var index = 0;
-    var timer = 0;
-    var inView = true;
-
-    function advance() {
-      var current = items[index];
-      index = (index + 1) % items.length;
-      var next = items[index];
-      current.classList.remove("is-active");
-      current.classList.add("is-leaving");
-      next.classList.remove("is-leaving");
-      next.classList.add("is-active");
-      window.setTimeout(function () {
-        current.classList.remove("is-leaving");
-      }, 700);
-    }
-
-    function stop() {
-      window.clearInterval(timer);
-      timer = 0;
-    }
-
-    function start() {
-      stop();
-      if (prefersReducedMotion() || !inView || document.hidden) return;
-      timer = window.setInterval(advance, 3200);
-    }
-
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (entries) {
-        inView = entries[0].isIntersecting;
-        start();
-      }).observe(el);
-    }
-    document.addEventListener("visibilitychange", start);
-    onMediaChange(reduceMotionQuery, start);
-    start();
   }
 
   /* -------------------------------------------- Card pointer spotlight */
@@ -222,7 +87,7 @@
   function countUp(el) {
     var target = parseFloat(el.getAttribute("data-count"));
     if (isNaN(target)) return;
-    var duration = 1600;
+    var duration = 1500;
     var start = 0;
     function frame(now) {
       if (!start) start = now;
@@ -291,19 +156,6 @@
       }, 2000);
     }
 
-    btn.addEventListener("click", function () {
-      var text = code.textContent;
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(function () {
-          done("Copied");
-        }, function () {
-          selectCode();
-        });
-      } else {
-        selectCode();
-      }
-    });
-
     function selectCode() {
       var range = document.createRange();
       range.selectNodeContents(code);
@@ -312,6 +164,17 @@
       sel.addRange(range);
       done("Press Ctrl+C");
     }
+
+    btn.addEventListener("click", function () {
+      var text = code.textContent;
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () {
+          done("Copied");
+        }, selectCode);
+      } else {
+        selectCode();
+      }
+    });
   }
 
   /* ------------------------------------------------------- CV preview
@@ -384,10 +247,10 @@
     });
   }
 
-  /* ------------------------------------------------- Hero flow field
+  /* ------------------------------------------------- Intro flow field
      Particles drift along a slowly evolving Perlin-noise field, leaving fine
-     ink-like threads. Pauses off-screen and in background tabs; renders a
-     single still frame when the visitor prefers reduced motion. */
+     threads behind the profile panel. Pauses off-screen and in background tabs;
+     renders a single still frame when the visitor prefers reduced motion. */
   function createNoise(seed) {
     var perm = new Uint8Array(512);
     var source = [];
@@ -459,39 +322,34 @@
     if (!ctx) return;
 
     var noise = createNoise(20261008);
-    var TRAIL = 72;
-    var SPEED = 1.35;
-    var SCALE = 0.0014;
-    var TIME_STEP = 0.0011;
-    var POINTER_RADIUS = 180;
+    var TRAIL = 70;
+    var SPEED = 1.2;
+    var SCALE = 0.0016;
+    var TIME_STEP = 0.001;
+    var POINTER_RADIUS = 160;
 
     var width = 0;
     var height = 0;
-    var spawnFrom = 0;
     var particles = [];
-    var palette = null;
     var t = 0;
     var raf = 0;
     var inView = true;
     var pointer = { x: 0, y: 0, active: false };
 
-    function readPalette() {
-      var cs = getComputedStyle(root);
-      palette = {
-        a: cs.getPropertyValue("--flow-a").trim() || "36, 66, 194",
-        b: cs.getPropertyValue("--flow-b").trim() || "21, 23, 28",
-        alphaA: parseFloat(cs.getPropertyValue("--flow-alpha-a")) || 0.5,
-        alphaB: parseFloat(cs.getPropertyValue("--flow-alpha-b")) || 0.2
-      };
-    }
+    var cs = getComputedStyle(root);
+    var palette = {
+      a: cs.getPropertyValue("--flow-a").trim() || "125, 178, 255",
+      b: cs.getPropertyValue("--flow-b").trim() || "230, 238, 251",
+      alphaA: parseFloat(cs.getPropertyValue("--flow-alpha-a")) || 0.3,
+      alphaB: parseFloat(cs.getPropertyValue("--flow-alpha-b")) || 0.07
+    };
 
     function spawn(p) {
-      // On wide screens the text sits on the left, so threads are seeded where they are visible.
-      p.x = spawnFrom + Math.random() * (width - spawnFrom);
+      p.x = Math.random() * width;
       p.y = Math.random() * height;
       p.age = 0;
       p.life = 160 + Math.random() * 280;
-      p.accent = Math.random() < 0.36;
+      p.accent = Math.random() < 0.4;
       p.trail = [p.x, p.y];
       return p;
     }
@@ -506,7 +364,7 @@
           var dx = p.x - pointer.x;
           var dy = p.y - pointer.y;
           var d2 = dx * dx + dy * dy;
-          if (d2 < r2) angle += (1 - Math.sqrt(d2) / POINTER_RADIUS) * 1.9;
+          if (d2 < r2) angle += (1 - Math.sqrt(d2) / POINTER_RADIUS) * 1.8;
         }
         p.x += Math.cos(angle) * SPEED;
         p.y += Math.sin(angle) * SPEED;
@@ -529,7 +387,7 @@
         if (fadeIn <= 0) continue;
         var alpha = fadeIn * (p.accent ? palette.alphaA : palette.alphaB);
         ctx.strokeStyle = "rgba(" + (p.accent ? palette.a : palette.b) + "," + alpha.toFixed(3) + ")";
-        ctx.lineWidth = p.accent ? 1.15 : 0.85;
+        ctx.lineWidth = p.accent ? 1.1 : 0.85;
         ctx.beginPath();
         ctx.moveTo(tr[0], tr[1]);
         for (var j = 2; j < tr.length; j += 2) ctx.lineTo(tr[j], tr[j + 1]);
@@ -546,9 +404,7 @@
       canvas.height = Math.round(height * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      spawnFrom = width > 880 ? width * 0.28 : 0;
-      var area = (width - spawnFrom) * height;
-      var count = Math.round(Math.min(280, Math.max(80, area / 3600)));
+      var count = Math.round(Math.min(160, Math.max(50, (width * height) / 4200)));
       particles = [];
       for (var i = 0; i < count; i++) {
         var p = spawn({});
@@ -578,7 +434,6 @@
       raf = 0;
     }
 
-    readPalette();
     resize();
     schedule();
 
@@ -612,11 +467,6 @@
       else schedule();
     });
 
-    document.addEventListener("themechange", function () {
-      readPalette();
-      draw();
-    });
-
     window.addEventListener("pointermove", function (e) {
       if (e.pointerType !== "mouse" || !inView) {
         pointer.active = false;
@@ -625,20 +475,14 @@
       var rect = canvas.getBoundingClientRect();
       pointer.x = e.clientX - rect.left;
       pointer.y = e.clientY - rect.top;
-      pointer.active = pointer.y >= 0 && pointer.y <= rect.height;
+      pointer.active = pointer.x >= 0 && pointer.x <= rect.width && pointer.y >= 0 && pointer.y <= rect.height;
     }, { passive: true });
-    document.addEventListener("pointerleave", function () {
-      pointer.active = false;
-    });
   }
 
   /* ------------------------------------------------------------- Boot */
   function init() {
-    initTheme();
-    initHeader();
-    initActiveNav();
+    initToc();
     initReveal();
-    initRotator();
     initSpotlight();
     initLive();
     initEmail();
