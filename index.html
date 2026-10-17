@@ -233,34 +233,34 @@ Driven by curiosity and a commitment to continuous growth, I aspire to advance A
 
           <!-- Technical Flow Diagram -->
           <div class="tech-diagram" style="margin: 24px 0; text-align: center;">
-            <h3 class="sub" style="color: var(--ink); margin-bottom: 16px;">TransFlow-HOI Architecture</h3>
+            <h3 class="sub" style="color: #e6eefb; margin-bottom: 16px;">TransFlow-HOI Architecture</h3>
             <div class="diagram-container" style="width: 100%; max-width: 600px; height: 400px; position: relative; margin: 0 auto;">
               <svg width="100%" height="100%" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet" class="tech-diagram-animated">
                 <!-- Background rectangle -->
-                <rect width="100%" height="100%" fill="var(--bg-deep)" rx="var(--radius)" stroke="var(--line)" stroke-width="1"/>
+                <rect width="100%" height="100%" style="fill: #071325; rx: 14px; stroke: rgba(136, 165, 215, 0.16); stroke-width: 1"/>
                 <!-- Definitions -->
                 <defs>
                   <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="var(--accent)" flood-opacity="0.5"/>
+                    <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#7db2ff" flood-opacity="0.5"/>
                   </filter>
                   <style>
-                    .stream { stroke: var(--ink-2); stroke-width: 2; fill: none; }
-                    .stream-active { stroke: var(--accent); stroke-width: 3; fill: none; }
-                    .node { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1.5; }
-                    .node-active { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
-                    .label { fill: var(--ink-2); font-family: var(--font-mono); font-size: 10px; text-anchor: middle; pointer-events: none; }
-                    .label-active { fill: var(--ink); font-weight: 500; }
-                    .arrow { fill: none; stroke: var(--ink-2); stroke-width: 1.5; marker-end: url(#arrowhead); }
-                    .arrow-active { stroke: var(--accent); stroke-width: 2; }
+                    .stream { stroke: #a9b7d0; stroke-width: 2; fill: none; }
+                    .stream-active { stroke: #7db2ff; stroke-width: 3; fill: none; }
+                    .node { fill: #10233f; stroke: rgba(136, 165, 215, 0.32); stroke-width: 1.5; }
+                    .node-active { fill: rgba(125, 178, 255, 0.1); stroke: #7db2ff; stroke-width: 2; }
+                    .label { fill: #a9b7d0; font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 10px; text-anchor: middle; pointer-events: none; }
+                    .label-active { fill: #e6eefb; font-weight: 500; }
+                    .arrow { fill: none; stroke: #a9b7d0; stroke-width: 1.5; marker-end: url(#arrowhead); }
+                    .arrow-active { stroke: #7db2ff; stroke-width: 2; }
                   </style>
                 </defs>
 
                 <!-- Arrowhead marker -->
                 <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="3" refY="2" orient="auto">
-                  <path d="M0,0 L0,4 L6,2 z" fill="var(--ink-2)"/>
+                  <path d="M0,0 L0,4 L6,2 z" fill="#a9b7d0"/>
                 </marker>
                 <marker id="arrowhead-active" markerWidth="6" markerHeight="4" refX="3" refY="2" orient="auto">
-                  <path d="M0,0 L0,4 L6,2 z" fill="var(--accent)"/>
+                  <path d="M0,0 L0,4 L6,2 z" fill="#7db2ff"/>
                 </marker>
 
                 <!-- Video Input -->
@@ -320,7 +320,7 @@ Driven by curiosity and a commitment to continuous growth, I aspire to advance A
                 <rect x="250" y="480" width="100" height="40" class="node-active" id="output-active"/>
               </svg>
             </div>
-            <p style="color: var(--ink-3); font-size: 0.85rem; margin-top: 12px; max-width: 500px; line-height: 1.4;">
+            <p style="color: #7f8fad; font-size: 0.85rem; margin-top: 12px; max-width: 500px; line-height: 1.4;">
               The TransFlow-HOI architecture fuses appearance (RGB/I3D features) and motion (optical flow) streams
               through cross-attention in a transformer to model long-range temporal dependencies for HOI recognition.
             </p>
