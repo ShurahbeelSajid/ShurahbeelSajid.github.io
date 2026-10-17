@@ -484,6 +484,10 @@ main {
   font-size: 0.88rem;
 }
 
+.btn--cv {
+  padding: 0 30px;
+}
+
 .text-link {
   display: inline-flex;
   align-items: center;
