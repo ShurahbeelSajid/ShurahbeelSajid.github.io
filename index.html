@@ -133,11 +133,11 @@
 
         <nav class="toc" aria-label="Sections">
           <ul>
-            <li><a class="toc__link" href="#about" style="font-size: 1.2em;"><span class="toc__line" aria-hidden="true"></span>About</a></li>
-            <li><a class="toc__link" href="#publication" style="font-size: 1.2em;"><span class="toc__line" aria-hidden="true"></span>Publication</a></li>
-            <li><a class="toc__link" href="#experience" style="font-size: 1.2em;"><span class="toc__line" aria-hidden="true"></span>Experience</a></li>
-            <li><a class="toc__link" href="#projects" style="font-size: 1.2em;"><span class="toc__line" aria-hidden="true"></span>Projects</a></li>
-            <li><a class="toc__link" href="#contact" style="font-size: 1.2em;"><span class="toc__line" aria-hidden="true"></span>Contact</a></li>
+            <li><a class="toc__link" href="#about"><span class="toc__line" aria-hidden="true"></span>About</a></li>
+            <li><a class="toc__link" href="#publication"><span class="toc__line" aria-hidden="true"></span>Publication</a></li>
+            <li><a class="toc__link" href="#experience"><span class="toc__line" aria-hidden="true"></span>Experience</a></li>
+            <li><a class="toc__link" href="#projects"><span class="toc__line" aria-hidden="true"></span>Projects</a></li>
+            <li><a class="toc__link" href="#contact"><span class="toc__line" aria-hidden="true"></span>Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -165,8 +165,8 @@
     <!-- ============================== CONTENT ============================== -->
     <main id="main">
       <!-- About -->
-      <section class="section reveal" id="about" aria-labelledby="about-h" style="padding-bottom: 60px;">
-        <h2 class="section-title" id="about-h" style="font-size: 1.5em;">About</h2>
+      <section class="section reveal" id="about" aria-labelledby="about-h">
+        <h2 class="section-title" id="about-h">About</h2>
 
         <p class="lead">
           I’m an AI Engineer and Computer Vision researcher passionate about building intelligent systems that solve real-world problems.
@@ -213,8 +213,8 @@ Driven by curiosity and a commitment to continuous growth, I aspire to advance A
       </section>
 
       <!-- Publication -->
-      <section class="section reveal" id="publication" aria-labelledby="pub-h" style="padding-bottom: 60px;">
-        <h2 class="section-title" id="pub-h" style="font-size: 1.5em;">Publication</h2>
+      <section class="section reveal" id="publication" aria-labelledby="pub-h">
+        <h2 class="section-title" id="pub-h">Publication</h2>
 
         <article class="card pub" aria-labelledby="pub-1-title" data-live>
           <p class="pub__label">
@@ -231,100 +231,91 @@ Driven by curiosity and a commitment to continuous growth, I aspire to advance A
             doi: <a href="https://doi.org/10.1109/ACCESS.2026.3655585" target="_blank" rel="noopener noreferrer">10.1109/ACCESS.2026.3655585</a>
           </p>
 
-          <!-- Technical Flow Diagram -->
-          <div class="tech-diagram" style="margin: 24px 0; text-align: center;">
-            <h3 class="sub" style="color: #e6eefb; margin-bottom: 16px;">TransFlow-HOI Architecture</h3>
-            <div class="diagram-container" style="width: 100%; max-width: 600px; height: 400px; position: relative; margin: 0 auto;">
-              <svg width="100%" height="100%" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet" class="tech-diagram-animated">
-                <!-- Background rectangle -->
-                <rect width="100%" height="100%" style="fill: #071325; rx: 14px; stroke: rgba(136, 165, 215, 0.16); stroke-width: 1"/>
-                <!-- Definitions -->
+          <!-- Architecture diagram (all styling lives in main.css; no inline styles due to CSP) -->
+          <figure class="tech">
+            <h3 class="sub">TransFlow-HOI architecture</h3>
+
+            <div class="tech__frame">
+              <svg class="tech__svg" viewBox="0 0 600 470" role="img" focusable="false"
+                   aria-label="Pipeline diagram: input video frames flow through an appearance stream and a motion stream into a cross-attention transformer, then temporal modeling, producing HOI recognition.">
                 <defs>
-                  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#7db2ff" flood-opacity="0.5"/>
-                  </filter>
-                  <style>
-                    .stream { stroke: #a9b7d0; stroke-width: 2; fill: none; }
-                    .stream-active { stroke: #7db2ff; stroke-width: 3; fill: none; }
-                    .node { fill: #10233f; stroke: rgba(136, 165, 215, 0.32); stroke-width: 1.5; }
-                    .node-active { fill: rgba(125, 178, 255, 0.1); stroke: #7db2ff; stroke-width: 2; }
-                    .label { fill: #a9b7d0; font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 10px; text-anchor: middle; pointer-events: none; }
-                    .label-active { fill: #e6eefb; font-weight: 500; }
-                    .arrow { fill: none; stroke: #a9b7d0; stroke-width: 1.5; marker-end: url(#arrowhead); }
-                    .arrow-active { stroke: #7db2ff; stroke-width: 2; }
-                  </style>
+                  <marker id="tech-arrow" viewBox="0 0 8 8" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" refX="6.8" refY="4" orient="auto">
+                    <path d="M0.8 1 7.5 4 0.8 7Z" class="tech__arrow"/>
+                  </marker>
                 </defs>
 
-                <!-- Arrowhead marker -->
-                <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="3" refY="2" orient="auto">
-                  <path d="M0,0 L0,4 L6,2 z" fill="#a9b7d0"/>
-                </marker>
-                <marker id="arrowhead-active" markerWidth="6" markerHeight="4" refX="3" refY="2" orient="auto">
-                  <path d="M0,0 L0,4 L6,2 z" fill="#7db2ff"/>
-                </marker>
+                <!-- Connectors -->
+                <path class="tech__e" d="M300 58 C240 76 185 98 152 122"/>
+                <path class="tech__e" d="M300 58 C360 76 415 98 448 122"/>
+                <path class="tech__e" d="M150 182 C150 220 178 254 205 274"/>
+                <path class="tech__e" d="M450 182 C450 220 422 254 395 274"/>
+                <path class="tech__e" d="M300 308 L300 342"/>
+                <path class="tech__e" d="M300 390 L300 422"/>
 
-                <!-- Video Input -->
-                <rect x="250" y="20" width="100" height="40" class="node" id="video-input"/>
-                <text x="300" y="45" class="label">Input Video Frames</text>
+                <!-- Nodes -->
+                <g>
+                  <rect class="tech__n" x="235" y="14" width="130" height="44" rx="10"/>
+                  <text class="tech__t1" x="300" y="32">Input frames</text>
+                  <text class="tech__t2" x="300" y="47">HOI4D clips</text>
+                </g>
+                <g>
+                  <rect class="tech__n" x="70" y="124" width="160" height="56" rx="10"/>
+                  <text class="tech__t1" x="150" y="149">Appearance stream</text>
+                  <text class="tech__t2" x="150" y="165">RGB · I3D features</text>
+                </g>
+                <g>
+                  <rect class="tech__n" x="370" y="124" width="160" height="56" rx="10"/>
+                  <text class="tech__t1" x="450" y="149">Motion stream</text>
+                  <text class="tech__t2" x="450" y="165">Optical-flow features</text>
+                </g>
+                <g>
+                  <rect class="tech__n" x="205" y="246" width="190" height="60" rx="10"/>
+                  <text class="tech__t1" x="300" y="272">Cross-attention</text>
+                  <text class="tech__t2" x="300" y="288">Transformer fusion</text>
+                </g>
+                <g>
+                  <rect class="tech__n" x="225" y="344" width="150" height="44" rx="10"/>
+                  <text class="tech__t1" x="300" y="362">Temporal modeling</text>
+                  <text class="tech__t2" x="300" y="378">Long-range cues</text>
+                </g>
+                <g>
+                  <rect class="tech__n" x="232" y="424" width="136" height="38" rx="10"/>
+                  <text class="tech__t1" x="300" y="449">HOI recognition</text>
+                </g>
 
-                <!-- Appearance Stream -->
-                <path d="M300,60 C250,80 200,100 150,120" class="stream" id="appearance-path"/>
-                <rect x="100" y="100" width="100" height="40" class="node" id="appearance-stream"/>
-                <text x="150" y="125" class="label">Appearance Stream<br/>RGB → I3D Features</text>
-
-                <!-- Motion Stream -->
-                <path d="M300,60 C350,80 400,100 450,120" class="stream" id="motion-path"/>
-                <rect x="400" y="100" width="100" height="40" class="node" id="motion-stream"/>
-                <text x="450" y="125" class="label">Motion Stream<br/>RGB → Optical Flow</text>
-
-                <!-- Feature Extraction -->
-                <path d="M150,140 C150,180 150,220 150,260" class="stream" id="appearance-features"/>
-                <path d="M450,140 C450,180 450,220 450,260" class="stream" id="motion-features"/>
-                <rect x="100" y="240" width="100" height="40" class="node" id="appearance-features-box"/>
-                <rect x="400" y="240" width="100" height="40" class="node" id="motion-features-box"/>
-                <text x="150" y="265" class="label">Feature Extraction</text>
-                <text x="450" y="265" class="label">Feature Extraction</text>
-
-                <!-- Transformer with Cross-Attention -->
-                <path d="M150,280 C200,300 250,300 300,320" class="stream" id="appearance-to-transformer"/>
-                <path d="M450,280 C400,300 350,300 300,320" class="stream" id="motion-to-transformer"/>
-                <rect x="250" y="300" width="100" height="60" class="node" id="transformer"/>
-                <text x="300" y="330" class="label">Transformer<br/>Cross-Attention Fusion</text>
-
-                <!-- Temporal Modeling -->
-                <path d="M300,360 C300,380 300,400 300,420" class="stream" id="temporal-modeling"/>
-                <rect x="250" y="400" width="100" height="40" class="node" id="temporal-modeling-box"/>
-                <text x="300" y="425" class="label">Temporal Modeling</text>
-
-                <!-- HOI Recognition Output -->
-                <path d="M300,440 C300,460 300,480 300,500" class="stream" id="output-path"/>
-                <rect x="250" y="480" width="100" height="40" class="node" id="output"/>
-                <text x="300" y="505" class="label">HOI Recognition</text>
-
-                <!-- Animated elements -->
-                <circle cx="300" cy="40" r="8" class="node-active" id="video-input-active"/>
-                <path d="M300,60 C250,80 200,100 150,120" class="stream-active" id="appearance-path-active"/>
-                <rect x="100" y="100" width="100" height="40" class="node-active" id="appearance-stream-active"/>
-                <path d="M300,60 C350,80 400,100 450,120" class="stream-active" id="motion-path-active"/>
-                <rect x="400" y="100" width="100" height="40" class="node-active" id="motion-stream-active"/>
-                <path d="M150,140 C150,180 150,220 150,260" class="stream-active" id="appearance-features-active"/>
-                <path d="M450,140 C450,180 450,220 450,260" class="stream-active" id="motion-features-active"/>
-                <rect x="100" y="240" width="100" height="40" class="node-active" id="appearance-features-box-active"/>
-                <rect x="400" y="240" width="100" height="40" class="node-active" id="motion-features-box-active"/>
-                <path d="M150,280 C200,300 250,300 300,320" class="stream-active" id="appearance-to-transformer-active"/>
-                <path d="M450,280 C400,300 350,300 300,320" class="stream-active" id="motion-to-transformer-active"/>
-                <rect x="250" y="300" width="100" height="60" class="node-active" id="transformer-active"/>
-                <path d="M300,360 C300,380 300,400 300,420" class="stream-active" id="temporal-modeling-active"/>
-                <rect x="250" y="400" width="100" height="40" class="node-active" id="temporal-modeling-box-active"/>
-                <path d="M300,440 C300,460 300,480 300,500" class="stream-active" id="output-path-active"/>
-                <rect x="250" y="480" width="100" height="40" class="node-active" id="output-active"/>
+                <!-- Sequential highlight: six phases light up in pipeline order -->
+                <g class="tech-phase tech-p1">
+                  <rect class="tech__h" x="235" y="14" width="130" height="44" rx="10"/>
+                </g>
+                <g class="tech-phase tech-p2">
+                  <path class="tech__f tech__march" d="M300 58 C240 76 185 98 152 122"/>
+                  <path class="tech__f tech__march" d="M300 58 C360 76 415 98 448 122"/>
+                  <rect class="tech__h" x="70" y="124" width="160" height="56" rx="10"/>
+                  <rect class="tech__h" x="370" y="124" width="160" height="56" rx="10"/>
+                </g>
+                <g class="tech-phase tech-p3">
+                  <path class="tech__f tech__march" d="M150 182 C150 220 178 254 205 274"/>
+                  <path class="tech__f tech__march" d="M450 182 C450 220 422 254 395 274"/>
+                </g>
+                <g class="tech-phase tech-p4">
+                  <rect class="tech__h" x="205" y="246" width="190" height="60" rx="10"/>
+                </g>
+                <g class="tech-phase tech-p5">
+                  <path class="tech__f tech__march" d="M300 308 L300 342"/>
+                  <rect class="tech__h" x="225" y="344" width="150" height="44" rx="10"/>
+                </g>
+                <g class="tech-phase tech-p6">
+                  <path class="tech__f tech__march" d="M300 390 L300 422"/>
+                  <rect class="tech__h" x="232" y="424" width="136" height="38" rx="10"/>
+                </g>
               </svg>
             </div>
-            <p style="color: #7f8fad; font-size: 0.85rem; margin-top: 12px; max-width: 500px; line-height: 1.4;">
+
+            <figcaption class="tech__cap">
               The TransFlow-HOI architecture fuses appearance (RGB/I3D features) and motion (optical flow) streams
               through cross-attention in a transformer to model long-range temporal dependencies for HOI recognition.
-            </p>
-          </div>
+            </figcaption>
+          </figure>
 
           <figure class="results">
             <figcaption>Top-1 accuracy on HOI4D</figcaption>
@@ -383,8 +374,8 @@ Driven by curiosity and a commitment to continuous growth, I aspire to advance A
       </section>
 
       <!-- Experience & education -->
-      <section class="section reveal" id="experience" aria-labelledby="exp-h" style="padding-bottom: 60px;">
-        <h2 class="section-title" id="exp-h" style="font-size: 1.5em;">Experience &amp; education</h2>
+      <section class="section reveal" id="experience" aria-labelledby="exp-h">
+        <h2 class="section-title" id="exp-h">Experience &amp; education</h2>
 
         <h3 class="sub">Experience</h3>
         <ol class="rows">
@@ -454,7 +445,7 @@ Driven by curiosity and a commitment to continuous growth, I aspire to advance A
       </section>
 
       <!-- Projects -->
-      <section class="section reveal" id="projects" aria-labelledby="projects-h" style="padding-bottom: 60px;">
+      <section class="section reveal" id="projects" aria-labelledby="projects-h">
         <h2 class="section-title" id="projects-h">Selected projects</h2>
 
         <div class="projects">
@@ -489,7 +480,7 @@ Driven by curiosity and a commitment to continuous growth, I aspire to advance A
       </section>
 
       <!-- Contact -->
-      <section class="section reveal" id="contact" aria-labelledby="contact-h" style="padding-bottom: 60px;">
+      <section class="section reveal" id="contact" aria-labelledby="contact-h">
         <h2 class="section-title" id="contact-h">Contact</h2>
         <p class="contact__text">
           I welcome conversations about research opportunities and collaboration in video understanding,

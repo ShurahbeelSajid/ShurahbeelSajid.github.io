@@ -83,6 +83,24 @@
     });
   }
 
+  /* --------------------------------- Architecture diagram centering
+     On narrow screens the diagram scrolls horizontally inside its frame;
+     start at the center so neither half looks cut off on arrival. */
+  function initDiagram() {
+    var frame = document.querySelector(".tech__frame");
+    if (!frame) return;
+    function center() {
+      frame.scrollLeft = Math.max(0, (frame.scrollWidth - frame.clientWidth) / 2);
+    }
+    if (!("IntersectionObserver" in window)) { center(); return; }
+    var observer = new IntersectionObserver(function (entries) {
+      if (!entries.some(function (e) { return e.isIntersecting; })) return;
+      center();
+      observer.disconnect();
+    }, { threshold: 0.12 });
+    observer.observe(frame);
+  }
+
   /* ------------------------- One-shot "live" animations ([data-live] → .is-live) */
   function countUp(el) {
     var target = parseFloat(el.getAttribute("data-count"));
@@ -485,6 +503,7 @@
     initReveal();
     initSpotlight();
     initLive();
+    initDiagram();
     initEmail();
     initCopy();
     initCv();
