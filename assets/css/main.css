@@ -487,6 +487,9 @@ main {
 .btn--cv {
   padding: 0 44px;
 }
+.intro__actions .btn--cv {
+  flex: 1;
+}
 
 .text-link {
   display: inline-flex;
