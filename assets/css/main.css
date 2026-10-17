@@ -1269,3 +1269,46 @@ html.modal-open {
     color: #000;
   }
 }
+
+/* ---------- Tech Flow Diagram Animations ---------- */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes flow {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -20; }
+}
+
+/* Animate when section is visible */
+.js .reveal.is-visible .tech-diagram-animated .node-active {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.js .reveal.is-visible .tech-diagram-animated .stream-active {
+  animation: wave 2s ease-in-out infinite;
+}
+
+.js .reveal.is-visible .tech-diagram-animated .stream-active {
+  stroke-dasharray: 4 2;
+  animation: flow 3s linear infinite;
+}
+
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal.is-visible .tech-diagram-animated * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .js .reveal.is-visible .tech-diagram-animated .node-active,
+  .js .reveal.is-visible .tech-diagram-animated .stream-active {
+    transform: none !important;
+  }
+}
