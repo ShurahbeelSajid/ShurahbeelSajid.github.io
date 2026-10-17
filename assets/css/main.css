@@ -1272,13 +1272,13 @@ html.modal-open {
 
 /* ---------- Tech Flow Diagram Animations ---------- */
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.02); opacity: 0.9; }
 }
 
 @keyframes wave {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-4px); }
 }
 
 @keyframes flow {
@@ -1292,12 +1292,8 @@ html.modal-open {
 }
 
 .js .reveal.is-visible .tech-diagram-animated .stream-active {
-  animation: wave 2s ease-in-out infinite;
-}
-
-.js .reveal.is-visible .tech-diagram-animated .stream-active {
   stroke-dasharray: 4 2;
-  animation: flow 3s linear infinite;
+  animation: wave 2s ease-in-out infinite, flow 3s linear infinite;
 }
 
 /* Reduce motion support */
